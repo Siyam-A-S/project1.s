@@ -13,4 +13,9 @@ main:
     	subu $t3, $t2, 10    # M = N - 10
 
 	# prompt user for input
+	li $v0, 8 				# read string system call
+	la $a0, input 				# load input buffer
+	li $a1, 11 				# maximum length (including null terminator) 
+	syscall 				# execute
+
 	# process input
