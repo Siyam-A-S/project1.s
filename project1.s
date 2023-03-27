@@ -18,4 +18,8 @@ main:
 	syscall 				# execute
 
 	# process input
-	
+	la $t0, input				# load the address of the user's input
+
+	# initialize registers
+	li $t1, 0 				# temporary value holder
+	li $t8, 0 				# 0 and 1; check if current index is even or odd
