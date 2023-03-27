@@ -6,5 +6,11 @@ newline: .asciiz "\n"	# for printing a newline character
 .globl main
 main:
    	# calculate N and M
+	li $t0, 03043178     # load Howard ID as decimal integer
+    	rem $t1, $t0, 11     # X % 11
+    	addiu $t2, $zero, 26 # N = 26 + (X % 11)
+    	addu $t2, $t2, $t1
+    	subu $t3, $t2, 10    # M = N - 10
+
 	# prompt user for input
 	# process input
