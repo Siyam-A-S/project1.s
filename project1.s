@@ -32,3 +32,10 @@ Exit:
 	la $a0, newline
 	li $v0, 11
 	syscall
+	
+	li $v0, 1
+	addiu $a0, $t2, 0
+	syscall
+	
+	li $v0, 10
+	syscall
