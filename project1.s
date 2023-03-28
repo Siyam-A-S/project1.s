@@ -35,6 +35,9 @@ loop:
 			addiu $t1, $t9, -48 		# assign character's value to $t1
 			divu $t7, $t3 			# to check if index is odd or even
 			mfhi $t8 			# move the remainder to $t8
+			beq $t8, 0, sum1		# jump to addition if index is even 
+			subu $t2, $t2, $t1		# subtract $t1 from $t2 if index is odd			  |
+			j next1				# to go to the next character
 
 Exit:	
 	la $a0, newline
