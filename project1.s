@@ -38,6 +38,13 @@ loop:
 			beq $t8, 0, sum1		# jump to addition if index is even 
 			subu $t2, $t2, $t1		# subtract $t1 from $t2 if index is odd			  |
 			j next1				# to go to the next character
+			
+		sum1:	addu $t2, $t2, $t1		# add the value in $t1 to $t2
+		
+		next1:	addiu $t0, $t0, 1		# go to next character's address
+			addiu $t7, $t7, 1 		# increase the index by 1
+			
+			j loop				# jump back again to loop 
 
 Exit:	
 	la $a0, newline
