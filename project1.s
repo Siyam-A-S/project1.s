@@ -30,6 +30,12 @@ loop:
 	beq $t7, 10, Exit 			# If index==10 exit loop
 	lb $t9, ($t0) 				# Load the successive character from $t0
 
+	zeroto9:	bgt $t9, 57, AtoV 		# if character > 9 then jump to AtoV
+			blt $t9, 48, next1 		# if character < 0 ignore it
+			addiu $t1, $t9, -48 		# assign character's value to $t1
+			divu $t7, $t3 			# to check if index is odd or even
+			mfhi $t8 			# move the remainder to $t8
+
 Exit:	
 	la $a0, newline
 	li $v0, 11
