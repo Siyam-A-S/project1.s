@@ -26,3 +26,9 @@ main:
 	li $t7, 0 				# initialize position to 0
 	li $t2, 0 				# initialize sum to zero
 	li $t3, 2 				# holds constant 2 to use in modulo divide
+
+
+Exit:	
+	la $a0, newline
+	li $v0, 11
+	syscall
