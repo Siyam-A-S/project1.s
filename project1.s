@@ -1,5 +1,5 @@
 .data
-input:  .space 11	# to store user input (10 characters + null terminator)
+input:  .space 10	# to store user input (10 characters)
 newline: .asciiz "\n"	# for printing a newline character
 
 .text
@@ -26,7 +26,9 @@ main:
 	li $t7, 0 				# initialize position to 0
 	li $t2, 0 				# initialize sum to zero
 	li $t3, 2 				# holds constant 2 to use in modulo divide
-
+loop:	
+	beq $t7, 10, Exit 			# If index==10 exit loop
+	lb $t9, ($t0) 				# Load the successive character from $t0
 
 Exit:	
 	la $a0, newline
